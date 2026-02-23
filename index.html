@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paket Wisata & Outbound Batu Malang | Petualangan Terbaik Jawa Timur</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Nunito:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --green-dark: #1a3a2a;
+      --green-mid: #2d6a4f;
+      --green-light: #52b788;
+      --amber: #e9a228;
+      --amber-light: #f4c454;
+      --cream: #faf8f2;
+      --earth: #8b6914;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --shadow: 0 8px 32px rgba(26, 58, 42, 0.15);
+      --radius: 16px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: ‘Nunito’, sans-serif;
+      background: var(–cream);
+      color: var(–green-dark);
+      overflow-x: hidden;
+    }
+
+    /* ============ NAVBAR ============ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(26, 58, 42, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      transition: all 0.3s;
+      border-bottom: 2px solid rgba(233, 162, 40, 0.3);
+    }
+
+    nav.scrolled {
+      height: 60px;
+      background: rgba(26, 58, 42, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(–amber), var(–amber-light));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .logo-text {
+      font-family: ‘Playfair Display’, serif;
+      color: var(–white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      color: var(–amber);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .nav-menu a:hover {
+      color: var(–amber);
+      background: rgba(233, 162, 40, 0.12);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(–amber), var(–amber-light)) !important;
+      color: var(–green-dark) !important;
+      font-weight: 700 !important;
+      padding: 9px 20px !important;
+      border-radius: 50px !important;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 162, 40, 0.4) !important;
+      background: rgba(0, 0, 0, 0) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(–white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(26, 58, 42, 0.92) 0%, rgba(45, 106, 79, 0.8) 50%, rgba(26, 58, 42, 0.95) 100%),
+        url(‘https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600’) center/cover no-repeat;
+    }
+
+    .hero-shapes {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-shapes::before {
+      content: ‘’;
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(233, 162, 40, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-shapes::after {
+      content: ‘’;
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(82, 183, 136, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-30px) scale(1.05);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 120px 5% 80px;
+      max-width: 800px;
+      animation: slideUp 1s ease both;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(233, 162, 40, 0.2);
+      border: 1px solid rgba(233, 162, 40, 0.5);
+      color: var(–amber-light);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: ‘Playfair Display’, serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900;
+      color: var(–white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(–amber);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 550px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(–amber), var(–amber-light));
+      color: var(–green-dark);
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 24px rgba(233, 162, 40, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(233, 162, 40, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(–white);
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(–amber);
+      color: var(–amber);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 24px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      animation: slideUp 1s 0.4s ease both;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 20px 24px;
+      text-align: center;
+      color: var(–white);
+    }
+
+    .stat-card .num {
+      font-family: ‘Playfair Display’, serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(–amber);
+      display: block;
+    }
+
+    .stat-card .lbl {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.8rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+    }
+
+    /* ============ SECTION COMMON ============ */
+    section {
+      padding: 90px 5%;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(–green-mid);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-label::before {
+      content: ‘’;
+      width: 30px;
+      height: 2px;
+      background: var(–amber);
+    }
+
+    .section-title {
+      font-family: ‘Playfair Display’, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(–green-dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-title span {
+      color: var(–green-mid);
+    }
+
+    .section-subtitle {
+      color: var(–gray);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    /* ============ ABOUT ============ */
+    #tentang {
+      background: var(–white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #tentang::before {
+      content: ‘’;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(135deg, #e8f5e9, #f0faf4);
+      clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-images {
+      position: relative;
+      height: 500px;
+    }
+
+    .about-img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 72%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(–shadow);
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 55%;
+      height: 55%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(–shadow);
+      border: 5px solid var(–white);
+    }
+
+    .about-badge-float {
+      position: absolute;
+      top: 40%;
+      right: -20px;
+      background: linear-gradient(135deg, var(–amber), var(–amber-light));
+      color: var(–green-dark);
+      border-radius: 16px;
+      padding: 16px 20px;
+      text-align: center;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(233, 162, 40, 0.4);
+      z-index: 2;
+    }
+
+    .about-badge-float .big {
+      font-size: 1.8rem;
+      display: block;
+      font-family: ‘Playfair Display’, serif;
+    }
+
+    .features-list {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(–green-mid);
+      font-size: 1rem;
+    }
+
+    .feature-text h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .feature-text p {
+      font-size: 0.82rem;
+      color: var(–gray);
+    }
+
+    /* ============ PACKAGES ============ */
+    #paket {
+      background: var(–cream);
+      position: relative;
+    }
+
+    .paket-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .paket-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .paket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .paket-card {
+      background: var(–white);
+      border-radius: var(–radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26, 58, 42, 0.08);
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .paket-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(26, 58, 42, 0.15);
+    }
+
+    .paket-card.featured::before {
+      content: ‘⭐ Terpopuler’;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(–amber);
+      color: var(–green-dark);
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 2;
+      letter-spacing: 0.5px;
+    }
+
+    .paket-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .paket-card:hover .paket-img {
+      transform: scale(1.08);
+    }
+
+    .paket-body {
+      padding: 24px;
+    }
+
+    .paket-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(–green-mid);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .paket-body h3 {
+      font-family: ‘Playfair Display’, serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(–green-dark);
+    }
+
+    .paket-body p {
+      color: var(–gray);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .paket-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .paket-features li {
+      font-size: 0.88rem;
+      padding: 5px 0;
+      color: var(–green-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .paket-features li::before {
+      content: ‘✓’;
+      width: 20px;
+      height: 20px;
+      background: #e8f5e9;
+      color: var(–green-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .paket-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: #f8fdf9;
+      border-top: 1px solid #e8f5e9;
+    }
+
+    .paket-price {
+      font-family: ‘Playfair Display’, serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(–green-mid);
+    }
+
+    .paket-price small {
+      font-family: ‘Nunito’, sans-serif;
+      font-size: 0.75rem;
+      color: var(–gray);
+      display: block;
+      font-weight: 400;
+    }
+
+    .btn-wa {
+      background: #25d366;
+      color: var(–white);
+      border: none;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .btn-wa:hover {
+      background: #1ebe5c;
+      transform: scale(1.05);
+    }
+
+    /* ============ ACTIVITIES ============ */
+    #aktivitas {
+      background: var(–green-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #aktivitas::before {
+      content: ‘’;
+      position: absolute;
+      inset: 0;
+      background: url(“data:image/svg+xml,%3Csvg width=‘60’ height=‘60’ viewBox=‘0 0 60 60’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cg fill=‘none’ fill-rule=‘evenodd’%3E%3Cg fill=’%2352b788’ fill-opacity=‘0.06’%3E%3Cpath d=‘M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z’/%3E%3C/g%3E%3C/g%3E%3C/svg%3E”);
+    }
+
+    #aktivitas .section-title {
+      color: var(–white);
+    }
+
+    #aktivitas .section-label {
+      color: var(–green-light);
+    }
+
+    #aktivitas .section-subtitle {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    #aktivitas .section-label::before {
+      background: var(–amber);
+    }
+
+    .aktivitas-header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .aktivitas-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .aktivitas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .aktivitas-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(–radius);
+      padding: 28px 22px;
+      text-align: center;
+      transition: all 0.4s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aktivitas-card::before {
+      content: ‘’;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(82, 183, 136, 0.15), rgba(233, 162, 40, 0.1));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .aktivitas-card:hover::before {
+      opacity: 1;
+    }
+
+    .aktivitas-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(233, 162, 40, 0.4);
+    }
+
+    .aktivitas-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .aktivitas-card:hover .aktivitas-icon {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .aktivitas-card h4 {
+      font-weight: 700;
+      color: var(–white);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .aktivitas-card p {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+    }
+
+    /* ============ GALLERY ============ */
+    #galeri {
+      background: var(–white);
+    }
+
+    .galeri-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .galeri-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .galeri-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 220px);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .galeri-item {
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .galeri-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .galeri-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .galeri-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .galeri-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26, 58, 42, 0.8) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .galeri-item:hover .galeri-overlay {
+      opacity: 1;
+    }
+
+    .galeri-overlay span {
+      color: var(–white);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .galeri-center {
+      text-align: center;
+    }
+
+    /* ============ TESTIMONIALS ============ */
+    #testimoni {
+      background: linear-gradient(135deg, #f0faf4 0%, var(–cream) 100%);
+      position: relative;
+    }
+
+    .testi-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .testi-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: var(–white);
+      border-radius: var(–radius);
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(26, 58, 42, 0.07);
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .testi-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 40px rgba(26, 58, 42, 0.12);
+    }
+
+    .testi-card::before {
+      content: ‘”’;
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 6rem;
+      font-family: ‘Playfair Display’, serif;
+      color: var(–green-light);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .stars {
+      color: var(–amber);
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .testi-text {
+      color: var(–gray);
+      font-size: 0.93rem;
+      line-height: 1.75;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testi-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #e8f5e9;
+      padding-top: 16px;
+    }
+
+    .testi-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(–green-light);
+    }
+
+    .testi-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(–green-dark);
+    }
+
+    .testi-role {
+      font-size: 0.8rem;
+      color: var(–gray);
+    }
+
+    /* ============ BLOG ============ */
+    #blog {
+      background: var(–cream);
+    }
+
+    .blog-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .blog-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .blog-card {
+      background: var(–white);
+      border-radius: var(–radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26, 58, 42, 0.07);
+      transition: all 0.4s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(26, 58, 42, 0.13);
+    }
+
+    .blog-img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .blog-card:hover .blog-img {
+      transform: scale(1.06);
+    }
+
+    .blog-body {
+      padding: 22px;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(–gray);
+      margin-bottom: 12px;
+    }
+
+    .blog-cat {
+      background: #e8f5e9;
+      color: var(–green-mid);
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.75rem;
+    }
+
+    .blog-body h3 {
+      font-family: ‘Playfair Display’, serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(–green-dark);
+      line-height: 1.4;
+      transition: color 0.3s;
+    }
+
+    .blog-card:hover .blog-body h3 {
+      color: var(–green-mid);
+    }
+
+    .blog-body p {
+      font-size: 0.87rem;
+      color: var(–gray);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .blog-link {
+      color: var(–green-mid);
+      font-size: 0.87rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.3s;
+    }
+
+    .blog-link:hover {
+      gap: 12px;
+    }
+
+    /* ============ CONTACT ============ */
+    #kontak {
+      background: var(–green-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #kontak::before {
+      content: ‘’;
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(82, 183, 136, 0.1), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .kontak-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 70px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .kontak-info .section-title {
+      color: var(–white);
+    }
+
+    .kontak-info .section-label {
+      color: var(–green-light);
+    }
+
+    .kontak-info .section-label::before {
+      background: var(–amber);
+    }
+
+    .kontak-info .section-subtitle {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .kontak-items {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .kontak-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .kontak-item-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: rgba(233, 162, 40, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(–amber);
+    }
+
+    .kontak-item h4 {
+      font-weight: 700;
+      color: var(–white);
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    .kontak-item p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .kontak-item a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .kontak-item a:hover {
+      color: var(–amber);
+    }
+
+    .kontak-form {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 36px;
+      backdrop-filter: blur(10px);
+    }
+
+    .kontak-form h3 {
+      font-family: ‘Playfair Display’, serif;
+      color: var(–white);
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: var(–white);
+      font-family: ‘Nunito’, sans-serif;
+      font-size: 0.92rem;
+      transition: all 0.3s;
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .form-group select option {
+      background: var(–green-dark);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(–amber);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 0 3px rgba(233, 162, 40, 0.15);
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(–amber), var(–amber-light));
+      color: var(–green-dark);
+      border: none;
+      padding: 15px;
+      border-radius: 50px;
+      font-family: ‘Nunito’, sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(233, 162, 40, 0.4);
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: #0f2219;
+      padding: 60px 5% 30px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+
+    .footer-about .logo-text {
+      color: var(–white);
+      font-size: 1.1rem;
+    }
+
+    .footer-about p {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      margin: 16px 0 20px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-link:hover {
+      background: var(–amber);
+      color: var(–green-dark);
+      transform: translateY(-3px);
+    }
+
+    .footer-col h4 {
+      color: var(–white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-col h4::after {
+      content: ‘’;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 28px;
+      height: 2px;
+      background: var(–amber);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(–amber);
+      padding-left: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom a {
+      color: var(–amber);
+      text-decoration: none;
+    }
+
+    /* ============ FLOATING BUTTONS ============ */
+    .fab-wa {
+      position: fixed;
+      bottom: 100px;
+      right: 24px;
+      z-index: 997;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: pulse-wa 3s infinite;
+    }
+
+    @keyframes pulse-wa {
+
+      0%,
+      100% {
+        filter: drop-shadow(0 0 0px rgba(37, 211, 102, 0));
+      }
+
+      50% {
+        filter: drop-shadow(0 0 12px rgba(37, 211, 102, 0.6));
+      }
+    }
+
+    .fab-wa-label {
+      background: var(–green-dark);
+      color: var(–white);
+      padding: 8px 14px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .fab-wa:hover .fab-wa-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fab-wa-btn {
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(–white);
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .fab-wa-btn::before {
+      content: ‘’;
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, 0.4);
+      animation: ripple 2s infinite;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .fab-wa-btn:hover {
+      background: #1ebe5c;
+      transform: scale(1.1);
+    }
+
+    .fab-top {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 997;
+      width: 48px;
+      height: 48px;
+      background: var(–green-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(–white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 16px rgba(45, 106, 79, 0.4);
+      transition: all 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+    }
+
+    .fab-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    .fab-top:hover {
+      background: var(–green-dark);
+      transform: translateY(-3px);
+    }
+
+    /* ============ WHY US ============ */
+    #kenapa {
+      background: var(–white);
+    }
+
+    .kenapa-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .kenapa-card {
+      padding: 32px 24px;
+      border-radius: var(–radius);
+      border: 2px solid #e8f5e9;
+      text-align: center;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kenapa-card::before {
+      content: ‘’;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(–green-mid), var(–green-light));
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+
+    .kenapa-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .kenapa-card:hover {
+      border-color: var(–green-light);
+      transform: translateY(-6px);
+      box-shadow: var(–shadow);
+    }
+
+    .kenapa-num {
+      font-family: ‘Playfair Display’, serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #e8f5e9;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .kenapa-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .kenapa-card h4 {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      color: var(–green-dark);
+    }
+
+    .kenapa-card p {
+      font-size: 0.85rem;
+      color: var(–gray);
+      line-height: 1.7;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+      .aktivitas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .kenapa-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-stats {
+        position: static;
+        justify-content: flex-start;
+        margin-top: 36px;
+        flex-wrap: wrap;
+      }
+
+      .hero-content {
+        padding-bottom: 60px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-images {
+        height: 350px;
+      }
+
+      .kontak-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+
+      .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(26, 58, 42, 0.98);
+        padding: 20px;
+        gap: 8px;
+      }
+
+      .galeri-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .galeri-item:first-child {
+        grid-row: auto;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .stat-card {
+        text-align: left;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .features-list {
+        grid-template-columns: 1fr;
+      }
+
+
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 60px 5%;
+      }
+
+      .galeri-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kenapa-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .aktivitas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        text-align: center;
+        justify-content: center;
+      }
+    }
+
+    /* Animations for scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">🏔️</div>
+      <div class="logo-text">Batu<span>Adventure</span><br><small
+          style="font-size:0.65rem;font-weight:400;letter-spacing:1px">OUTBOUND & WISATA</small></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#tentang">Tentang Kami</a></li>
+      <li><a href="#paket">Paket</a></li>
+      <li><a href="#aktivitas">Aktivitas</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#kontak" class="nav-cta"><i class="fas fa-phone-alt"></i> Hubungi Kami</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-shapes"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🌿 #1 Vendor Outbound Jawa Timur</div>
+      <h1>Paket Wisata &<br><span>Outbound Batu</span><br>Malang</h1>
+      <p>Pengalaman petualangan terbaik di kota wisata Batu Malang. Kami menyediakan paket outbound profesional, team
+        building, wisata edukasi, dan gathering yang tak terlupakan.</p>
+      <div class="hero-btns">
+        <a href="#paket" class="btn-primary"><i class="fas fa-compass"></i> Lihat Paket</a>
+        <a href="https://wa.me/6281234567890" class="btn-outline" target="_blank"><i class="fab fa-whatsapp"></i>
+          Konsultasi Gratis</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="num">500+</span>
+          <span class="lbl">Klien Puas</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">10+</span>
+          <span class="lbl">Tahun Berpengalaman</span>
+        </div>
+        <div class="stat-card">
+          <span class="num">50+</span>
+          <span class="lbl">Instruktur Tersertifikasi</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll Down</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+
+  <section id="tentang">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <img class="about-img-main" src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600"
+          alt="Outbound Batu Malang">
+        <img class="about-img-accent" src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=400"
+          alt="Team Building">
+
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="section-label">Tentang Kami</div>
+        <h2 class="section-title">Vendor Outbound <span>Terpercaya</span> di Batu Malang</h2>
+        <p class="section-subtitle">Kami adalah penyedia layanan outbound dan wisata terkemuka di Kota Batu, Malang,
+          Jawa Timur. Dengan pengalaman lebih dari satu dekade, kami telah melayani ratusan perusahaan, instansi
+          pendidikan, dan kelompok wisata dengan hasil yang memuaskan.</p>
+        <p class="section-subtitle" style="margin-top:12px">Kami berdedikasi untuk memberikan pengalaman terbaik melalui
+          program yang kreatif, instruktur berpengalaman, dan lokasi-lokasi alam terbaik di Batu Malang.</p>
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="feature-text">
+              <h4>Keamanan Terjamin</h4>
+              <p>Standar keselamatan internasional</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-users"></i></div>
+            <div class="feature-text">
+              <h4>Instruktur Profesional</h4>
+              <p>Tersertifikasi & berpengalaman</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <div class="feature-text">
+              <h4>Lokasi Premium</h4>
+              <p>Spot terbaik di Batu Malang</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-tags"></i></div>
+            <div class="feature-text">
+              <h4>Harga Kompetitif</h4>
+              <p>Paket fleksibel sesuai budget</p>
+            </div>
+          </div>
+        </div>
+        <a href="#kontak" class="btn-primary" style="margin-top:28px;display:inline-flex">
+          <i class="fas fa-arrow-right"></i> Konsultasi Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PACKAGES ============ -->
+
+  <section id="paket">
+    <div class="paket-header reveal">
+      <div class="section-label">Layanan Kami</div>
+      <h2 class="section-title">Pilihan <span>Paket</span> Terbaik</h2>
+      <p class="section-subtitle">Kami menawarkan berbagai paket outbound dan wisata yang dapat disesuaikan dengan
+        kebutuhan dan anggaran Anda.</p>
+    </div>
+    <div class="paket-grid">
+      <div class="paket-card reveal reveal-delay-1">
+        <div style="overflow:hidden">
+          <img class="paket-img" src="https://images.unsplash.com/photo-1539541417736-3d44c90da315?w=600"
+            alt="Outbound Perusahaan">
+        </div>
+        <div class="paket-body">
+          <div class="paket-tag"><i class="fas fa-building"></i> Korporat</div>
+          <h3>Outbound Perusahaan</h3>
+          <p>Program outbound khusus untuk perusahaan dengan fokus team building, leadership, dan motivasi karyawan.
+            Cocok untuk meningkatkan kinerja tim.</p>
+          <ul class="paket-features">
+            <li>Flying Fox & High Rope</li>
+            <li>Team Building Games</li>
+            <li>Leadership Training</li>
+            <li>Makan Siang Prasmanan</li>
+            <li>Dokumentasi Foto & Video</li>
+          </ul>
+        </div>
+        <div class="paket-footer">
+          <div class="paket-price">
+            <small>Mulai dari</small>
+            Rp 150rb
+            <small style="display:block;font-size:0.7rem;color:var(--gray)">/pax (min. 30 org)</small>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo, saya ingin info Paket Outbound Perusahaan" class="btn-wa"
+            target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat
+          </a>
+        </div>
+      </div>
+
+
+      <div class="paket-card featured reveal reveal-delay-2">
+        <div style="overflow:hidden">
+          <img class="paket-img" src="https://images.unsplash.com/photo-1533630654593-e75e1b85ac73?w=600"
+            alt="Wisata Edukasi">
+        </div>
+        <div class="paket-body">
+          <div class="paket-tag"><i class="fas fa-graduation-cap"></i> Edukasi</div>
+          <h3>Wisata Edukasi Batu Malang</h3>
+          <p>Paket wisata edukatif untuk sekolah dan kampus. Menggabungkan pembelajaran dengan kegiatan outbound yang
+            menyenangkan dan berkesan.</p>
+          <ul class="paket-features">
+            <li>Outbound Edukatif</li>
+            <li>Kunjungan Wisata Batu</li>
+            <li>Games & Ice Breaking</li>
+            <li>Sertifikat Peserta</li>
+            <li>Free Koordinator Tour</li>
+          </ul>
+        </div>
+        <div class="paket-footer">
+          <div class="paket-price">
+            <small>Mulai dari</small>
+            Rp 125rb
+            <small style="display:block;font-size:0.7rem;color:var(--gray)">/pax (min. 50 org)</small>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo, saya ingin info Paket Wisata Edukasi" class="btn-wa"
+            target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat
+          </a>
+        </div>
+      </div>
+
+      <div class="paket-card reveal reveal-delay-3">
+        <div style="overflow:hidden">
+          <img class="paket-img" src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=600"
+            alt="Wisata Bromo">
+        </div>
+        <div class="paket-body">
+          <div class="paket-tag"><i class="fas fa-mountain"></i> Bromo</div>
+          <h3>Outbound + Wisata Bromo</h3>
+          <p>Paket lengkap outbound di Batu dilanjutkan dengan menikmati keindahan Gunung Bromo. Pengalaman tak
+            terlupakan di 2 destinasi ikonik Jawa Timur.</p>
+          <ul class="paket-features">
+            <li>Outbound Full Day Batu</li>
+            <li>Sunrise Bromo</li>
+            <li>Penginapan Terjangkau</li>
+            <li>Transport & Guide</li>
+            <li>Asuransi Perjalanan</li>
+          </ul>
+        </div>
+        <div class="paket-footer">
+          <div class="paket-price">
+            <small>Mulai dari</small>
+            Rp 350rb
+            <small style="display:block;font-size:0.7rem;color:var(--gray)">/pax (min. 20 org)</small>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo, saya ingin info Paket Outbound Bromo" class="btn-wa"
+            target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat
+          </a>
+        </div>
+      </div>
+
+      <div class="paket-card reveal reveal-delay-1">
+        <div style="overflow:hidden">
+          <img class="paket-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600"
+            alt="Gathering">
+        </div>
+        <div class="paket-body">
+          <div class="paket-tag"><i class="fas fa-glass-cheers"></i> Gathering</div>
+          <h3>Family Gathering</h3>
+          <p>Paket gathering keluarga besar atau komunitas yang seru dan berkesan. Tersedia berbagai pilihan lokasi alam
+            indah di sekitar Batu Malang.</p>
+          <ul class="paket-features">
+            <li>Games Keluarga Seru</li>
+            <li>BBQ & Makan Bersama</li>
+            <li>Hiburan & Doorprize</li>
+            <li>Lokasi Outdoor Premium</li>
+            <li>MC & Sound System</li>
+          </ul>
+        </div>
+        <div class="paket-footer">
+          <div class="paket-price">
+            <small>Mulai dari</small>
+            Rp 200rb
+            <small style="display:block;font-size:0.7rem;color:var(--gray)">/pax (min. 50 org)</small>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo, saya ingin info Paket Family Gathering" class="btn-wa"
+            target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat
+          </a>
+        </div>
+      </div>
+
+      <div class="paket-card reveal reveal-delay-2">
+        <div style="overflow:hidden">
+          <img class="paket-img" src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?w=600" alt="Rafting">
+        </div>
+        <div class="paket-body">
+          <div class="paket-tag"><i class="fas fa-water"></i> Petualangan</div>
+          <h3>Paket Rafting + Outbound</h3>
+          <p>Sensasi memacu adrenalin dengan arung jeram di sungai Batu Malang, dilanjutkan aktivitas outbound seru yang
+            penuh kebersamaan.</p>
+          <ul class="paket-features">
+            <li>Rafting 2,5 Jam</li>
+            <li>Outbound Half Day</li>
+            <li>Perlengkapan Safety</li>
+            <li>Instruktur Berpengalaman</li>
+            <li>Makan Siang + Snack</li>
+          </ul>
+        </div>
+        <div class="paket-footer">
+          <div class="paket-price">
+            <small>Mulai dari</small>
+            Rp 250rb
+            <small style="display:block;font-size:0.7rem;color:var(--gray)">/pax (min. 20 org)</small>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo, saya ingin info Paket Rafting+Outbound" class="btn-wa"
+            target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat
+          </a>
+        </div>
+      </div>
+
+      <div class="paket-card reveal reveal-delay-3"
+        style="background:linear-gradient(135deg, var(--green-dark), var(--green-mid));color:white">
+        <div
+          style="padding:28px;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:400px">
+          <span style="font-size:3rem;margin-bottom:16px">🎨</span>
+          <h3 style="color:white;font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:12px">Paket Custom
+            Sesuai Kebutuhan</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:0.9rem;line-height:1.7;margin-bottom:24px">Tidak menemukan
+            paket yang sesuai? Kami siap merancang program outbound khusus sesuai kebutuhan dan anggaran Anda.</p>
+          <a href="https://wa.me/6281234567890?text=Halo, saya ingin paket outbound custom" class="btn-primary"
+            target="_blank" style="display:inline-flex">
+            <i class="fas fa-pen"></i> Desain Paketmu
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ============ ACTIVITIES ============ -->
+
+  <section id="aktivitas">
+    <div class="aktivitas-header reveal">
+      <div class="section-label">Apa Yang Kami Tawarkan</div>
+      <h2 class="section-title">Aktivitas <span style="color:var(--amber)">Seru</span> Menanti Anda</h2>
+      <p class="section-subtitle">Berbagai kegiatan outbound dan wisata petualangan yang dirancang untuk membangun
+        kebersamaan dan melatih kemampuan tim.</p>
+    </div>
+    <div class="aktivitas-grid">
+      <div class="aktivitas-card reveal reveal-delay-1">
+        <span class="aktivitas-icon">🦅</span>
+        <h4>Flying Fox</h4>
+        <p>Meluncur di atas ketinggian dengan pemandangan alam yang spektakuler. Menantang nyali dan membangun
+          kepercayaan diri.</p>
+      </div>
+      <div class="aktivitas-card reveal reveal-delay-2">
+        <span class="aktivitas-icon">🚣</span>
+        <h4>Arung Jeram</h4>
+        <p>Taklukkan jeram sungai Brantas yang mengalir deras bersama tim Anda. Seru, memacu adrenalin, dan mempererat
+          kerjasama.</p>
+      </div>
+      <div class="aktivitas-card reveal reveal-delay-3">
+        <span class="aktivitas-icon">🎯</span>
+        <h4>Paintball</h4>
+        <p>Simulasi perang menggunakan paintball yang melatih strategi, koordinasi tim, dan ketangkasan dalam medan
+          tempur.</p>
+      </div>
+      <div class="aktivitas-card reveal reveal-delay-4">
+        <span class="aktivitas-icon">🏕️</span>
+        <h4>Camping</h4>
+        <p>Malam bintang di bawah langit Batu Malang. Camping seru dengan api unggun, cerita, dan kedekatan bersama tim.
+        </p>
+      </div>
+      <div class="aktivitas-card reveal reveal-delay-1">
+        <span class="aktivitas-icon">🧗</span>
+        <h4>High Rope Course</h4>
+        <p>Tantangan ketinggian dengan berbagai rintangan tali yang melatih keberanian, fokus, dan kepercayaan pada
+          rekan tim.</p>
+      </div>
+      <div class="aktivitas-card reveal reveal-delay-2">
+        <span class="aktivitas-icon">🏄</span>
+        <h4>Water Games</h4>
+        <p>Aneka permainan air yang seru dan menyegarkan. Cocok untuk menghangatkan suasana dan mempererat hubungan
+          antar peserta.</p>
+      </div>
+      <div class="aktivitas-card reveal reveal-delay-3">
+        <span class="aktivitas-icon">🌋</span>
+        <h4>Hiking & Trekking</h4>
+        <p>Jelajahi jalur-jalur alam indah di sekitar Batu Malang. Menikmati pemandangan alam sambil melatih ketahanan
+          fisik.</p>
+      </div>
+      <div class="aktivitas-card reveal reveal-delay-4">
+        <span class="aktivitas-icon">🎭</span>
+        <h4>Cultural Games</h4>
+        <p>Permainan tradisional dan budaya yang mengenalkan kearifan lokal sambil mempererat semangat kebersamaan tim.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY US ============ -->
+
+  <section id="kenapa">
+    <div class="paket-header reveal">
+      <div class="section-label">Keunggulan Kami</div>
+      <h2 class="section-title">Mengapa Memilih <span>Kami?</span></h2>
+      <p class="section-subtitle">Kami berkomitmen memberikan pelayanan terbaik dengan standar keselamatan tinggi dan
+        pengalaman yang tak terlupakan.</p>
+    </div>
+    <div class="kenapa-grid">
+      <div class="kenapa-card reveal reveal-delay-1">
+        <span class="kenapa-icon">🛡️</span>
+        <div class="kenapa-num">01</div>
+        <h4>Safety First</h4>
+        <p>Semua peralatan memenuhi standar keselamatan internasional dengan pengecekan rutin sebelum setiap aktivitas.
+        </p>
+      </div>
+      <div class="kenapa-card reveal reveal-delay-2">
+        <span class="kenapa-icon">👨‍💼</span>
+        <div class="kenapa-num">02</div>
+        <h4>Tim Profesional</h4>
+        <p>Instruktur bersertifikat dan berpengalaman yang siap memastikan setiap peserta mendapatkan pengalaman
+          terbaik.</p>
+      </div>
+      <div class="kenapa-card reveal reveal-delay-3">
+        <span class="kenapa-icon">💰</span>
+        <div class="kenapa-num">03</div>
+        <h4>Harga Terjangkau</h4>
+        <p>Paket harga yang kompetitif dengan fasilitas premium. Bisa disesuaikan dengan anggaran dan kebutuhan grup
+          Anda.</p>
+      </div>
+      <div class="kenapa-card reveal reveal-delay-4">
+        <span class="kenapa-icon">⚡</span>
+        <div class="kenapa-num">04</div>
+        <h4>Respon Cepat</h4>
+        <p>Tim kami siap merespon pertanyaan dan kebutuhan Anda dalam waktu singkat, 7 hari seminggu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+
+  <section id="galeri">
+    <div class="galeri-header reveal">
+      <div class="section-label">Momen Berharga</div>
+      <h2 class="section-title">Galeri <span>Keseruan</span> Kami</h2>
+      <p class="section-subtitle">Ribuan momen tak terlupakan telah kami abadikan bersama klien kami yang luar biasa di
+        alam Batu Malang.</p>
+    </div>
+    <div class="galeri-grid reveal">
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600" alt="Outbound">
+        <div class="galeri-overlay"><span>🦅 Flying Fox</span></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1533630654593-e75e1b85ac73?w=600" alt="Team Building">
+        <div class="galeri-overlay"><span>🤝 Team Building</span></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?w=600" alt="Camping">
+        <div class="galeri-overlay"><span>🏕️ Camping</span></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600" alt="Alam Batu">
+        <div class="galeri-overlay"><span>🌋 Alam Batu</span></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600" alt="Outbound">
+        <div class="galeri-overlay"><span>🎯 Outbound Games</span></div>
+      </div>
+    </div>
+    <div class="galeri-center reveal">
+      <a href="#kontak" class="btn-primary" style="display:inline-flex">
+        <i class="fas fa-images"></i> Lihat Semua Galeri
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+
+  <section id="testimoni">
+    <div class="testi-header reveal">
+      <div class="section-label">Kata Mereka</div>
+      <h2 class="section-title">Klien Kami <span>Bercerita</span></h2>
+      <p class="section-subtitle">Kepuasan klien adalah prioritas kami. Simak pengalaman nyata dari berbagai perusahaan
+        dan institusi yang telah mempercayakan program outbound mereka kepada kami.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Kami menggunakan jasa BatuAdventure untuk acara team building perusahaan. Hasilnya luar
+          biasa! Karyawan kami sangat antusias dan teamwork mereka meningkat signifikan. Pasti akan kami
+          rekomendasikan!"</p>
+        <div class="testi-person">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Budi">
+          <div>
+            <div class="testi-name">Budi Santoso</div>
+            <div class="testi-role">HRD Manager, PT Maju Bersama</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Paket wisata edukasi untuk siswa kami sangat memuaskan. Anak-anak belajar banyak sambil
+          bermain. Instrukturnya sabar dan profesional. Lokasi outbound-nya juga keren banget di alam Batu Malang!"</p>
+        <div class="testi-person">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" alt="Sari">
+          <div>
+            <div class="testi-name">Sari Dewi</div>
+            <div class="testi-role">Guru Olahraga, SMA Negeri 1 Malang</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"Family gathering kami berjalan sempurna berkat BatuAdventure! Semua anggota keluarga dari
+          anak-anak sampai orang tua menikmati setiap momen. Harga terjangkau tapi kualitasnya premium. Bravo!"</p>
+        <div class="testi-person">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" alt="Andi">
+          <div>
+            <div class="testi-name">Andi Wijaya</div>
+            <div class="testi-role">Ketua RT, Perumahan Griya Indah</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG ============ -->
+
+  <section id="blog">
+    <div class="blog-header reveal">
+      <div class="section-label">Informasi & Tips</div>
+      <h2 class="section-title">Artikel <span>Terbaru</span></h2>
+      <p class="section-subtitle">Dapatkan informasi terkini seputar wisata, outbound, dan tips perjalanan di Batu
+        Malang dan sekitarnya.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal reveal-delay-1">
+        <div style="overflow:hidden;height:190px">
+          <img class="blog-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600"
+            alt="Batu Malang">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Wisata</span>
+            <span><i class="fas fa-calendar-alt"></i> 15 Feb 2025</span>
+          </div>
+          <h3>10 Destinasi Wisata Terbaik di Kota Batu yang Wajib Dikunjungi</h3>
+          <p>Kota Batu Malang menawarkan berbagai destinasi wisata memukau. Dari Jatim Park hingga Museum Angkut, semua
+            tersedia di kota sejuk ini...</p>
+          <a href="#" class="blog-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card reveal reveal-delay-2">
+        <div style="overflow:hidden;height:190px">
+          <img class="blog-img" src="https://images.unsplash.com/photo-1539541417736-3d44c90da315?w=600"
+            alt="Outbound Tips">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Outbound</span>
+            <span><i class="fas fa-calendar-alt"></i> 8 Feb 2025</span>
+          </div>
+          <h3>Tips Memilih Vendor Outbound Terpercaya untuk Perusahaan Anda</h3>
+          <p>Memilih vendor outbound yang tepat sangat penting untuk keberhasilan program team building. Simak panduan
+            lengkapnya di sini...</p>
+          <a href="#" class="blog-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card reveal reveal-delay-3">
+        <div style="overflow:hidden;height:190px">
+          <img class="blog-img" src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=600" alt="Bromo">
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Petualangan</span>
+            <span><i class="fas fa-calendar-alt"></i> 1 Feb 2025</span>
+          </div>
+          <h3>Itinerary Wisata Batu Seharian: Rafting Pagi, Outbound Sore</h3>
+          <p>Maksimalkan liburan di Batu Malang dengan jadwal wisata seharian penuh yang seru dan berkesan bersama tim
+            atau keluarga...</p>
+          <a href="#" class="blog-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+
+  <section id="kontak">
+    <div class="kontak-grid">
+      <div class="kontak-info reveal">
+        <div class="section-label">Hubungi Kami</div>
+        <h2 class="section-title" style="color:white">Siap Mulai <span style="color:var(--amber)">Petualangan</span>
+          Anda?</h2>
+        <p class="section-subtitle">Tim kami siap membantu Anda merencanakan program outbound dan wisata yang sempurna.
+          Hubungi kami sekarang untuk konsultasi gratis!</p>
+        <div class="kontak-items">
+          <div class="kontak-item">
+            <div class="kontak-item-icon"><i class="fas fa-phone-alt"></i></div>
+            <div>
+              <h4>Telepon / WhatsApp</h4>
+              <p><a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+              <p><a href="tel:+6285678901234">+62 856-7890-1234</a></p>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="kontak-item-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:info@batuadventure.com">info@batuadventure.com</a></p>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="kontak-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Lokasi</h4>
+              <p>Jl. Raya Batu No. 88, Kota Batu,<br>Jawa Timur 65313</p>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="kontak-item-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>Jam Operasional</h4>
+              <p>Senin – Sabtu: 08.00 – 17.00 WIB<br>Minggu: 09.00 – 15.00 WIB</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kontak-form reveal reveal-delay-2">
+        <h3>Kirim Pesan ke Kami</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" placeholder="Nama Anda">
+          </div>
+          <div class="form-group">
+            <label>No. WhatsApp *</label>
+            <input type="tel" placeholder="08xx-xxxx-xxxx">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@anda.com">
+        </div>
+        <div class="form-group">
+          <label>Jenis Paket *</label>
+          <select>
+            <option value="">-- Pilih Paket --</option>
+            <option>Outbound Perusahaan</option>
+            <option>Wisata Edukasi</option>
+            <option>Outbound + Bromo</option>
+            <option>Family Gathering</option>
+            <option>Rafting + Outbound</option>
+            <option>Paket Custom</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Jumlah Peserta *</label>
+            <input type="number" placeholder="Misal: 50">
+          </div>
+          <div class="form-group">
+            <label>Tanggal Pelaksanaan</label>
+            <input type="date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Pesan / Kebutuhan Khusus</label>
+          <textarea placeholder="Ceritakan kebutuhan dan harapan Anda untuk program outbound ini..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="sendWA()">
+          <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#" class="nav-logo" style="margin-bottom:16px;display:inline-flex">
+          <div class="logo-icon">🏔️</div>
+          <div class="logo-text">Batu<span>Adventure</span></div>
+        </a>
+        <p>Penyedia jasa outbound dan wisata terpercaya di Kota Batu Malang, Jawa Timur. Melayani berbagai kebutuhan
+          team building, wisata edukasi, dan gathering sejak 2014.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan Kami</h4>
+        <ul>
+          <li><a href="#paket"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i> Outbound
+              Perusahaan</a></li>
+          <li><a href="#paket"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i> Wisata
+              Edukasi</a></li>
+          <li><a href="#paket"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i> Paket
+              Bromo</a></li>
+          <li><a href="#paket"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i> Family
+              Gathering</a></li>
+          <li><a href="#paket"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i> Rafting
+              Malang</a></li>
+          <li><a href="#paket"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i> Paket
+              Custom</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#home"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i>
+              Beranda</a></li>
+          <li><a href="#tentang"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i>
+              Tentang Kami</a></li>
+          <li><a href="#aktivitas"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i>
+              Aktivitas</a></li>
+          <li><a href="#galeri"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i>
+              Galeri</a></li>
+          <li><a href="#testimoni"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i>
+              Testimoni</a></li>
+          <li><a href="#blog"><i class="fas fa-chevron-right" style="font-size:0.7rem;color:var(--amber)"></i> Blog</a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Kami</h4>
+        <ul>
+          <li><a href="tel:+6281234567890"><i class="fas fa-phone-alt" style="color:var(--amber);width:16px"></i> +62
+              812-3456-7890</a></li>
+          <li><a href="mailto:info@batuadventure.com"><i class="fas fa-envelope"
+                style="color:var(--amber);width:16px"></i> info@batuadventure.com</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt" style="color:var(--amber);width:16px"></i> Kota Batu, Jawa
+              Timur</a></li>
+        </ul>
+        <div
+          style="margin-top:20px;padding:16px;background:rgba(233,162,40,0.1);border-radius:12px;border:1px solid rgba(233,162,40,0.2)">
+          <p style="font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.6">Senin – Sabtu: <strong
+              style="color:white">08.00 – 17.00</strong><br>Minggu: <strong style="color:white">09.00 – 15.00</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>©️ 2025 <a href="#">BatuAdventure Outbound & Wisata</a>. All rights reserved.</p>
+      <p>Dibuat dengan ❤️ untuk petualangan terbaik Anda</p>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING WA BUTTON ============ -->
+
+  <div class="fab-wa">
+    <span class="fab-wa-label">Hubungi Kami via WhatsApp</span>
+    <a href="https://wa.me/6281234567890?text=Halo BatuAdventure, saya ingin info paket outbound" class="fab-wa-btn"
+      target="_blank" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ============ SCROLL TO TOP BUTTON ============ -->
+
+  <button class="fab-top" id="fabTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+
+      const fabTop = document.getElementById('fabTop');
+      if (window.scrollY > 400) fabTop.classList.add('visible');
+      else fabTop.classList.remove('visible');
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navMenu.classList.remove('open'));
+    });
+
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // WhatsApp send function
+    function sendWA() {
+      const nama = document.querySelector('input[placeholder="Nama Anda"]').value;
+      const wa = document.querySelector('input[placeholder="08xx-xxxx-xxxx"]').value;
+      const paket = document.querySelector('select').value;
+      const peserta = document.querySelector('input[placeholder="Misal: 50"]').value;
+      const pesan = document.querySelector('textarea').value;
+
+      const text = `Halo BatuAdventure! 🏔️%0A%0ANama: ${nama}%0ANo WA: ${wa}%0APaket: ${paket}%0AJumlah Peserta: ${peserta}%0A%0APesan:%0A${pesan}`;
+      window.open(`https://wa.me/6281234567890?text=${text}`, '_blank');
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const pos = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
