@@ -1,0 +1,9 @@
+# Robots.txt for outbound-malang3.vercel.app
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://outbound-malang3.vercel.app/sitemap.xml
+
+# Crawl-delay (optional, polite request)
+Crawl-delay: 1
